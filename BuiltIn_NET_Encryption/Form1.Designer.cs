@@ -32,8 +32,9 @@ namespace BuiltIn_NET_Encryption
         {
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.SymAlgComboBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.menuStrip2 = new System.Windows.Forms.MenuStrip();
+            this.SymAlgMenuStrip = new System.Windows.Forms.MenuStrip();
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.параметрыШифрованияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ключToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -45,15 +46,21 @@ namespace BuiltIn_NET_Encryption
             this.шифроватьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.дешифроватьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.keySize_numericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.AsymAlgMenuStrip = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.сохранитьToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem15 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem16 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem17 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem18 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem19 = new System.Windows.Forms.ToolStripMenuItem();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.menuStrip3 = new System.Windows.Forms.MenuStrip();
+            this.DigSigMenuStrip = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
@@ -61,21 +68,21 @@ namespace BuiltIn_NET_Encryption
             this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.menuStrip4 = new System.Windows.Forms.MenuStrip();
+            this.HashMenuStrip = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem12 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem13 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem14 = new System.Windows.Forms.ToolStripMenuItem();
-            this.SymAlgComboBox = new System.Windows.Forms.ComboBox();
             this.tabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.menuStrip2.SuspendLayout();
+            this.SymAlgMenuStrip.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.keySize_numericUpDown)).BeginInit();
+            this.AsymAlgMenuStrip.SuspendLayout();
             this.tabPage3.SuspendLayout();
-            this.menuStrip3.SuspendLayout();
+            this.DigSigMenuStrip.SuspendLayout();
             this.tabPage4.SuspendLayout();
-            this.menuStrip4.SuspendLayout();
+            this.HashMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl
@@ -101,7 +108,7 @@ namespace BuiltIn_NET_Encryption
             // 
             this.tabPage1.Controls.Add(this.SymAlgComboBox);
             this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.Controls.Add(this.menuStrip2);
+            this.tabPage1.Controls.Add(this.SymAlgMenuStrip);
             this.tabPage1.Location = new System.Drawing.Point(204, 4);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -109,6 +116,20 @@ namespace BuiltIn_NET_Encryption
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Симетричное шифрование";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // SymAlgComboBox
+            // 
+            this.SymAlgComboBox.FormattingEnabled = true;
+            this.SymAlgComboBox.Items.AddRange(new object[] {
+            "AES",
+            "Rijndael",
+            "DES",
+            "RC2",
+            "TripleDES"});
+            this.SymAlgComboBox.Location = new System.Drawing.Point(20, 57);
+            this.SymAlgComboBox.Name = "SymAlgComboBox";
+            this.SymAlgComboBox.Size = new System.Drawing.Size(121, 21);
+            this.SymAlgComboBox.TabIndex = 2;
             // 
             // label1
             // 
@@ -119,17 +140,17 @@ namespace BuiltIn_NET_Encryption
             this.label1.TabIndex = 1;
             this.label1.Text = "Выберите алгоритм";
             // 
-            // menuStrip2
+            // SymAlgMenuStrip
             // 
-            this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.SymAlgMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.файлToolStripMenuItem,
             this.шифроватьToolStripMenuItem,
             this.дешифроватьToolStripMenuItem});
-            this.menuStrip2.Location = new System.Drawing.Point(3, 3);
-            this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(262, 24);
-            this.menuStrip2.TabIndex = 0;
-            this.menuStrip2.Text = "menuStrip2";
+            this.SymAlgMenuStrip.Location = new System.Drawing.Point(3, 3);
+            this.SymAlgMenuStrip.Name = "SymAlgMenuStrip";
+            this.SymAlgMenuStrip.Size = new System.Drawing.Size(262, 24);
+            this.SymAlgMenuStrip.TabIndex = 0;
+            this.SymAlgMenuStrip.Text = "menuStrip2";
             // 
             // файлToolStripMenuItem
             // 
@@ -210,7 +231,12 @@ namespace BuiltIn_NET_Encryption
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.menuStrip1);
+            this.tabPage2.Controls.Add(this.keySize_numericUpDown);
+            this.tabPage2.Controls.Add(this.label3);
+            this.tabPage2.Controls.Add(this.label2);
+            this.tabPage2.Controls.Add(this.button1);
+            this.tabPage2.Controls.Add(this.checkBox1);
+            this.tabPage2.Controls.Add(this.AsymAlgMenuStrip);
             this.tabPage2.Location = new System.Drawing.Point(204, 4);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -219,61 +245,140 @@ namespace BuiltIn_NET_Encryption
             this.tabPage2.Text = "Асиметричное шифрование";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // menuStrip1
+            // keySize_numericUpDown
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.keySize_numericUpDown.Increment = new decimal(new int[] {
+            8,
+            0,
+            0,
+            0});
+            this.keySize_numericUpDown.Location = new System.Drawing.Point(6, 71);
+            this.keySize_numericUpDown.Maximum = new decimal(new int[] {
+            16384,
+            0,
+            0,
+            0});
+            this.keySize_numericUpDown.Minimum = new decimal(new int[] {
+            384,
+            0,
+            0,
+            0});
+            this.keySize_numericUpDown.Name = "keySize_numericUpDown";
+            this.keySize_numericUpDown.Size = new System.Drawing.Size(140, 20);
+            this.keySize_numericUpDown.TabIndex = 7;
+            this.keySize_numericUpDown.Value = new decimal(new int[] {
+            384,
+            0,
+            0,
+            0});
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 52);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(77, 13);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Длина ключа:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(7, 30);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(81, 13);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Алгоритм RSA";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(6, 95);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(140, 23);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Сгенерировать ключи";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.GenKeys_click);
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(6, 124);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(212, 17);
+            this.checkBox1.TabIndex = 2;
+            this.checkBox1.Text = "Optimal Asymmetric Encryption Padding";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.isOAEP_CheckedChanged);
+            // 
+            // AsymAlgMenuStrip
+            // 
+            this.AsymAlgMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1,
-            this.toolStripMenuItem4,
-            this.toolStripMenuItem5});
-            this.menuStrip1.Location = new System.Drawing.Point(3, 3);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(262, 24);
-            this.menuStrip1.TabIndex = 1;
-            this.menuStrip1.Text = "menuStrip1";
+            this.toolStripMenuItem18,
+            this.toolStripMenuItem19});
+            this.AsymAlgMenuStrip.Location = new System.Drawing.Point(3, 3);
+            this.AsymAlgMenuStrip.Name = "AsymAlgMenuStrip";
+            this.AsymAlgMenuStrip.Size = new System.Drawing.Size(262, 24);
+            this.AsymAlgMenuStrip.TabIndex = 1;
+            this.AsymAlgMenuStrip.Text = "menuStrip1";
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem2,
-            this.toolStripMenuItem3,
-            this.сохранитьToolStripMenuItem2});
+            this.toolStripMenuItem5});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(48, 20);
             this.toolStripMenuItem1.Text = "Файл";
             // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(214, 22);
-            this.toolStripMenuItem2.Text = "Параметры шифрования";
-            // 
-            // toolStripMenuItem3
-            // 
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(214, 22);
-            this.toolStripMenuItem3.Text = "Выбрать файл";
-            // 
-            // сохранитьToolStripMenuItem2
-            // 
-            this.сохранитьToolStripMenuItem2.Name = "сохранитьToolStripMenuItem2";
-            this.сохранитьToolStripMenuItem2.Size = new System.Drawing.Size(214, 22);
-            this.сохранитьToolStripMenuItem2.Text = "Сохранить";
-            // 
-            // toolStripMenuItem4
-            // 
-            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(83, 20);
-            this.toolStripMenuItem4.Text = "Шифровать";
-            // 
             // toolStripMenuItem5
             // 
+            this.toolStripMenuItem5.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem15,
+            this.toolStripMenuItem16,
+            this.toolStripMenuItem17});
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(97, 20);
-            this.toolStripMenuItem5.Text = "Дешифровать";
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(153, 22);
+            this.toolStripMenuItem5.Text = "Выбрать файл";
+            // 
+            // toolStripMenuItem15
+            // 
+            this.toolStripMenuItem15.Name = "toolStripMenuItem15";
+            this.toolStripMenuItem15.Size = new System.Drawing.Size(201, 22);
+            this.toolStripMenuItem15.Text = "Файл шифрования";
+            this.toolStripMenuItem15.Click += new System.EventHandler(this.toolStripMenuItem15_Click);
+            // 
+            // toolStripMenuItem16
+            // 
+            this.toolStripMenuItem16.Name = "toolStripMenuItem16";
+            this.toolStripMenuItem16.Size = new System.Drawing.Size(201, 22);
+            this.toolStripMenuItem16.Text = "Файл дешифрования";
+            this.toolStripMenuItem16.Click += new System.EventHandler(this.toolStripMenuItem16_Click);
+            // 
+            // toolStripMenuItem17
+            // 
+            this.toolStripMenuItem17.Name = "toolStripMenuItem17";
+            this.toolStripMenuItem17.Size = new System.Drawing.Size(201, 22);
+            this.toolStripMenuItem17.Text = "Расшифрованый файл";
+            this.toolStripMenuItem17.Click += new System.EventHandler(this.toolStripMenuItem17_Click);
+            // 
+            // toolStripMenuItem18
+            // 
+            this.toolStripMenuItem18.Name = "toolStripMenuItem18";
+            this.toolStripMenuItem18.Size = new System.Drawing.Size(83, 20);
+            this.toolStripMenuItem18.Text = "Шифровать";
+            this.toolStripMenuItem18.Click += new System.EventHandler(this.toolStripMenuItem18_Click);
+            // 
+            // toolStripMenuItem19
+            // 
+            this.toolStripMenuItem19.Name = "toolStripMenuItem19";
+            this.toolStripMenuItem19.Size = new System.Drawing.Size(97, 20);
+            this.toolStripMenuItem19.Text = "Дешифровать";
+            this.toolStripMenuItem19.Click += new System.EventHandler(this.toolStripMenuItem19_Click);
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.menuStrip3);
+            this.tabPage3.Controls.Add(this.DigSigMenuStrip);
             this.tabPage3.Location = new System.Drawing.Point(204, 4);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
@@ -282,17 +387,17 @@ namespace BuiltIn_NET_Encryption
             this.tabPage3.Text = "Цифрования подпись";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // menuStrip3
+            // DigSigMenuStrip
             // 
-            this.menuStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.DigSigMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem6,
             this.toolStripMenuItem9,
             this.toolStripMenuItem10});
-            this.menuStrip3.Location = new System.Drawing.Point(3, 3);
-            this.menuStrip3.Name = "menuStrip3";
-            this.menuStrip3.Size = new System.Drawing.Size(262, 24);
-            this.menuStrip3.TabIndex = 2;
-            this.menuStrip3.Text = "menuStrip3";
+            this.DigSigMenuStrip.Location = new System.Drawing.Point(3, 3);
+            this.DigSigMenuStrip.Name = "DigSigMenuStrip";
+            this.DigSigMenuStrip.Size = new System.Drawing.Size(262, 24);
+            this.DigSigMenuStrip.TabIndex = 2;
+            this.DigSigMenuStrip.Text = "menuStrip3";
             // 
             // toolStripMenuItem6
             // 
@@ -336,7 +441,7 @@ namespace BuiltIn_NET_Encryption
             // 
             // tabPage4
             // 
-            this.tabPage4.Controls.Add(this.menuStrip4);
+            this.tabPage4.Controls.Add(this.HashMenuStrip);
             this.tabPage4.Location = new System.Drawing.Point(204, 4);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
@@ -345,16 +450,16 @@ namespace BuiltIn_NET_Encryption
             this.tabPage4.Text = "Хэширование";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // menuStrip4
+            // HashMenuStrip
             // 
-            this.menuStrip4.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.HashMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem11,
             this.toolStripMenuItem14});
-            this.menuStrip4.Location = new System.Drawing.Point(3, 3);
-            this.menuStrip4.Name = "menuStrip4";
-            this.menuStrip4.Size = new System.Drawing.Size(262, 24);
-            this.menuStrip4.TabIndex = 2;
-            this.menuStrip4.Text = "menuStrip4";
+            this.HashMenuStrip.Location = new System.Drawing.Point(3, 3);
+            this.HashMenuStrip.Name = "HashMenuStrip";
+            this.HashMenuStrip.Size = new System.Drawing.Size(262, 24);
+            this.HashMenuStrip.TabIndex = 2;
+            this.HashMenuStrip.Text = "menuStrip4";
             // 
             // toolStripMenuItem11
             // 
@@ -383,20 +488,6 @@ namespace BuiltIn_NET_Encryption
             this.toolStripMenuItem14.Size = new System.Drawing.Size(105, 20);
             this.toolStripMenuItem14.Text = "Вычислить хэш";
             // 
-            // SymAlgComboBox
-            // 
-            this.SymAlgComboBox.FormattingEnabled = true;
-            this.SymAlgComboBox.Items.AddRange(new object[] {
-            "AES",
-            "Rijndael",
-            "DES",
-            "RC2",
-            "TripleDES"});
-            this.SymAlgComboBox.Location = new System.Drawing.Point(20, 57);
-            this.SymAlgComboBox.Name = "SymAlgComboBox";
-            this.SymAlgComboBox.Size = new System.Drawing.Size(121, 21);
-            this.SymAlgComboBox.TabIndex = 2;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -404,24 +495,26 @@ namespace BuiltIn_NET_Encryption
             this.ClientSize = new System.Drawing.Size(476, 162);
             this.Controls.Add(this.tabControl);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.tabControl.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            this.menuStrip2.ResumeLayout(false);
-            this.menuStrip2.PerformLayout();
+            this.SymAlgMenuStrip.ResumeLayout(false);
+            this.SymAlgMenuStrip.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.keySize_numericUpDown)).EndInit();
+            this.AsymAlgMenuStrip.ResumeLayout(false);
+            this.AsymAlgMenuStrip.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
-            this.menuStrip3.ResumeLayout(false);
-            this.menuStrip3.PerformLayout();
+            this.DigSigMenuStrip.ResumeLayout(false);
+            this.DigSigMenuStrip.PerformLayout();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
-            this.menuStrip4.ResumeLayout(false);
-            this.menuStrip4.PerformLayout();
+            this.HashMenuStrip.ResumeLayout(false);
+            this.HashMenuStrip.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -430,7 +523,7 @@ namespace BuiltIn_NET_Encryption
 
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.MenuStrip menuStrip2;
+        private System.Windows.Forms.MenuStrip SymAlgMenuStrip;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage4;
@@ -440,24 +533,17 @@ namespace BuiltIn_NET_Encryption
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStripMenuItem шифроватьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem дешифроватьToolStripMenuItem;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem5;
-        private System.Windows.Forms.MenuStrip menuStrip3;
+        private System.Windows.Forms.MenuStrip DigSigMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem6;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem7;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem8;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem9;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem10;
-        private System.Windows.Forms.MenuStrip menuStrip4;
+        private System.Windows.Forms.MenuStrip HashMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem11;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem12;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem13;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem14;
-        private System.Windows.Forms.ToolStripMenuItem сохранитьToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem сохранитьToolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem ключToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem векторИнициализацииToolStripMenuItem;
@@ -465,6 +551,19 @@ namespace BuiltIn_NET_Encryption
         private System.Windows.Forms.ToolStripMenuItem файлДешифрованияToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem расшифрованыйФайлToolStripMenuItem;
         private ComboBox SymAlgComboBox;
+        private MenuStrip AsymAlgMenuStrip;
+        private ToolStripMenuItem toolStripMenuItem1;
+        private ToolStripMenuItem toolStripMenuItem5;
+        private ToolStripMenuItem toolStripMenuItem15;
+        private ToolStripMenuItem toolStripMenuItem16;
+        private ToolStripMenuItem toolStripMenuItem17;
+        private ToolStripMenuItem toolStripMenuItem18;
+        private ToolStripMenuItem toolStripMenuItem19;
+        private CheckBox checkBox1;
+        private Button button1;
+        private NumericUpDown keySize_numericUpDown;
+        private Label label3;
+        private Label label2;
     }
 }
 

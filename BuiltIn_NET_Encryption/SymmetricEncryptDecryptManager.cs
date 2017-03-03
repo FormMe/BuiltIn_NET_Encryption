@@ -25,6 +25,7 @@ namespace BuiltIn_NET_Encryption
         }
 
         private SymmetricAlgorithm Crypto;
+
         public void EncryptFile(string inputFile, string outputFile)
         {
             using (var fsCrypt = new FileStream(outputFile, FileMode.Create))

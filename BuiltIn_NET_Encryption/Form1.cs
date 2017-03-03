@@ -131,8 +131,89 @@ namespace BuiltIn_NET_Encryption
             symFileManager.decrypedFile = FileManager.SetFile();
         }
 
+
         #endregion
 
+
+        #region AsymmetricEncryptDecrypt
+
+        AsymmetricEncryptDecryptManager asymManager = new AsymmetricEncryptDecryptManager();
+        FileManager asymFileManager = new FileManager();
+
+        private void GenKeys_click(object sender, EventArgs e)
+        {
+            try
+            {
+                int keySize;
+                int.TryParse(keySize_numericUpDown.Text, out keySize);
+                if (keySize % 8 != 0)
+                    throw new Exception("Размер ключа должен быть кратен 8");
+                asymManager.GenerateKeys(keySize);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error");
+                throw;
+            }
+        }
+        private void toolStripMenuItem18_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(asymFileManager.encrypFile))
+                    throw new Exception("Выберите файл шифрования");
+                if (string.IsNullOrEmpty(asymFileManager.decrypFile))
+                    throw new Exception("Выберите файл дешифрования");
+                if (asymManager.publicKey == null)
+                    throw new Exception("Сгенерируйте ключи");
+                asymManager.EncryptFile(asymFileManager.encrypFile, asymFileManager.decrypFile);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error");
+                throw;
+            }
+        }
+        private void toolStripMenuItem19_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(asymFileManager.decrypFile))
+                    throw new Exception("Выберите файл шифрования");
+                if (string.IsNullOrEmpty(asymFileManager.decrypedFile))
+                    throw new Exception("Выберите файл дешифрования");
+                if (asymManager.privateKey == null)
+                    throw new Exception("Сгенерируйте ключи");
+                asymManager.DecryptFile(asymFileManager.decrypFile, asymFileManager.decrypedFile);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error");
+                throw;
+            }
+
+        }
+
+        private void toolStripMenuItem15_Click(object sender, EventArgs e)
+        {
+            asymFileManager.encrypFile = FileManager.SetFile();
+        }
+
+        private void toolStripMenuItem16_Click(object sender, EventArgs e)
+        {
+            asymFileManager.decrypFile = FileManager.SetFile();
+        }
+
+        private void toolStripMenuItem17_Click(object sender, EventArgs e)
+        {
+            asymFileManager.decrypedFile = FileManager.SetFile();
+        }
+
+        private void isOAEP_CheckedChanged(object sender, EventArgs e)
+        {
+            asymManager.DoOAEPPadding = checkBox1.Checked;
+        }
+        #endregion
 
     }
 }
