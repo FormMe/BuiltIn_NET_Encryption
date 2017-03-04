@@ -73,6 +73,8 @@ namespace BuiltIn_NET_Encryption
             this.toolStripMenuItem12 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem13 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem14 = new System.Windows.Forms.ToolStripMenuItem();
+            this.hashType_comboBox = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.tabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.SymAlgMenuStrip.SuspendLayout();
@@ -126,7 +128,7 @@ namespace BuiltIn_NET_Encryption
             "DES",
             "RC2",
             "TripleDES"});
-            this.SymAlgComboBox.Location = new System.Drawing.Point(20, 57);
+            this.SymAlgComboBox.Location = new System.Drawing.Point(9, 46);
             this.SymAlgComboBox.Name = "SymAlgComboBox";
             this.SymAlgComboBox.Size = new System.Drawing.Size(121, 21);
             this.SymAlgComboBox.TabIndex = 2;
@@ -134,7 +136,7 @@ namespace BuiltIn_NET_Encryption
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(17, 40);
+            this.label1.Location = new System.Drawing.Point(6, 30);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(108, 13);
             this.label1.TabIndex = 1;
@@ -441,6 +443,8 @@ namespace BuiltIn_NET_Encryption
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.hashType_comboBox);
+            this.tabPage4.Controls.Add(this.label4);
             this.tabPage4.Controls.Add(this.HashMenuStrip);
             this.tabPage4.Location = new System.Drawing.Point(204, 4);
             this.tabPage4.Name = "tabPage4";
@@ -475,18 +479,45 @@ namespace BuiltIn_NET_Encryption
             this.toolStripMenuItem12.Name = "toolStripMenuItem12";
             this.toolStripMenuItem12.Size = new System.Drawing.Size(153, 22);
             this.toolStripMenuItem12.Text = "Выбрать файл";
+            this.toolStripMenuItem12.Click += new System.EventHandler(this.toolStripMenuItem12_Click);
             // 
             // toolStripMenuItem13
             // 
             this.toolStripMenuItem13.Name = "toolStripMenuItem13";
             this.toolStripMenuItem13.Size = new System.Drawing.Size(153, 22);
             this.toolStripMenuItem13.Text = "Сохранить";
+            this.toolStripMenuItem13.Click += new System.EventHandler(this.toolStripMenuItem13_Click);
             // 
             // toolStripMenuItem14
             // 
             this.toolStripMenuItem14.Name = "toolStripMenuItem14";
             this.toolStripMenuItem14.Size = new System.Drawing.Size(105, 20);
             this.toolStripMenuItem14.Text = "Вычислить хэш";
+            this.toolStripMenuItem14.Click += new System.EventHandler(this.toolStripMenuItem14_Click);
+            // 
+            // hashType_comboBox
+            // 
+            this.hashType_comboBox.FormattingEnabled = true;
+            this.hashType_comboBox.Items.AddRange(new object[] {
+            "MD5",
+            "SHA1",
+            "SHA256",
+            "SHA384",
+            "SHA512",
+            "RIPEMD160"});
+            this.hashType_comboBox.Location = new System.Drawing.Point(9, 46);
+            this.hashType_comboBox.Name = "hashType_comboBox";
+            this.hashType_comboBox.Size = new System.Drawing.Size(121, 21);
+            this.hashType_comboBox.TabIndex = 6;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 30);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(108, 13);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "Выберите алгоритм";
             // 
             // Form1
             // 
@@ -564,6 +595,8 @@ namespace BuiltIn_NET_Encryption
         private NumericUpDown keySize_numericUpDown;
         private Label label3;
         private Label label2;
+        private ComboBox hashType_comboBox;
+        private Label label4;
     }
 }
 

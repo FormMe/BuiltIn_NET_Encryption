@@ -153,7 +153,6 @@ namespace BuiltIn_NET_Encryption
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error");
-                throw;
             }
         }
         private void toolStripMenuItem18_Click(object sender, EventArgs e)
@@ -171,7 +170,6 @@ namespace BuiltIn_NET_Encryption
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error");
-                throw;
             }
         }
         private void toolStripMenuItem19_Click(object sender, EventArgs e)
@@ -189,7 +187,6 @@ namespace BuiltIn_NET_Encryption
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error");
-                throw;
             }
 
         }
@@ -214,6 +211,35 @@ namespace BuiltIn_NET_Encryption
             asymManager.DoOAEPPadding = checkBox1.Checked;
         }
         #endregion
+        #region hash
 
+        FileManager hashFileManager = new FileManager();
+        HashAlgorithmManager hashManager = new HashAlgorithmManager();
+        private void toolStripMenuItem12_Click(object sender, EventArgs e)
+        {
+            hashFileManager.encrypFile = FileManager.SetFile();
+        }
+        private void toolStripMenuItem13_Click(object sender, EventArgs e)
+        {
+            hashFileManager.decrypFile = FileManager.SetFile();
+        }
+
+        private void toolStripMenuItem14_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                hashManager.type = (HashAlgorithmType)hashType_comboBox.SelectedIndex;
+                var hash = hashManager
+                    .Computehash(File.ReadAllBytes(hashFileManager.encrypFile))
+                    .Aggregate("", (s1, b) => s1 += (b.ToString("x8") + " "));
+
+                File.WriteAllText(hashFileManager.decrypFile, hash);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error");
+            }
+        }
+        #endregion
     }
 }
